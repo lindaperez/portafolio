@@ -1,0 +1,4 @@
+database = portafolio_DB
+user = portafolio_user
+password = rootroot
+default-character-set = utf8
