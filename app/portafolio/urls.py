@@ -14,9 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
+
+
+# configuring generic View ProjectList
+from django.urls import path
+from .views import ProjectList
+from .views import ProjectDetail
+from .views import ProjectUpdate
 
 urlpatterns = [
-    path('portafolio/', include('portafolio.urls')),
-    path('admin/', admin.site.urls)
-]
+    path('projects/', ProjectList.as_view(),name='project_list.html'),
+    path('projects/<int:pk>', ProjectDetail.as_view(), name='project_detail.html'),
+    path('projects/edit/<int:pk>', ProjectUpdate.as_view(), name='project_update.html'),
+
+    ]

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %} Detail {% endblock %}
+
+{% block content %}
+<h1>{{ object.title }} </h1>
+<p>Title: {{ object.title }}</p>
+<p>Backend: {{ object.backend }}</p>
+<p>FrontEnd: {{ object.frontend }}</p>
+<p>started: {{ object.started|date }}</p>
+{% if object.ended %}
+<p>ended: {{ object.ended|date }}</p>
+{% endif %}
+<p>Repository Name: <a href="{{repo_url}}">{{ object.repo_name }}</a> </p>
+
+{% endblock %}
+
+
