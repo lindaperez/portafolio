@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 
-{% block title %} Projects {% endblock %}
+{% block title %} Collaborators {% endblock %}
 
 {% block content %}
-    <h2>Projects</h2>
+    <h2>Colaborators</h2>
     {% if not object_list %}
     <p>No entries</p>
     {% endif %}
 
     {% for object in object_list %}
 
-<li><a href="{{ object.id}}">{{ object.title }}</a>
+<li><a href="{{ object.id}}">{{ object.id }} {{ object.id_user }} {{ object.id_project }} </a>
     <a href="edit/{{ object.id}}"> Editar</a>
         <a href="delete/{{ object.id}}"> Eliminar</a></li>
 
