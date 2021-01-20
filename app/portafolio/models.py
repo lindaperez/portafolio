@@ -12,7 +12,7 @@ class Project(models.Model):
     repo_url = models.CharField(max_length=500)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'project'
         ordering = ["-title"]
 
@@ -69,7 +69,7 @@ class User(models.Model):
 class View(models.Model):
     id_project = models.ForeignKey(Project, models.DO_NOTHING, db_column='id_project')
     description = models.CharField(max_length=50)
-    picpath = models.CharField(max_length=500)
+    picpathdada = models.CharField(max_length=500)
 
     class Meta:
         managed = False

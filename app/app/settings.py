@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework'
 
 ]
 
@@ -84,7 +85,14 @@ DATABASES = {
         #'NAME': BASE_DIR / 'app_DB.cnf',
         'NAME': 'portafolio_DB',
         'USER': 'portafolio_user',
-        'PASSWORD': 'rootroot'
+        'PASSWORD': 'rootroot',
+        'TEST': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'test_portafolio_DB',
+            'USER': 'test_portafolio_user',
+            'PASSWORD': 'rootroot',
+
+        }
     }
 }
 
@@ -126,3 +134,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json',
+    'TEST_REQUEST_RENDERER_CLASSES': [
+        'rest_framework.renderers.MultiPartRenderer',
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.TemplateHTMLRenderer'
+    ]
+}
